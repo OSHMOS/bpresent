@@ -1,0 +1,6 @@
+{% if user.is_authenticated %}
+  {{ user }}
+{% else %}
+  <a class="btn btn-primary" href="{% url 'account_login' %}">로그인</a>
+  <a class="btn btn-secondary" href="{% url 'account_signup' %}">회원가입</a>
+{% endif %}

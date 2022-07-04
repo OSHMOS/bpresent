@@ -7,7 +7,6 @@ class Card(models.Model):
 
   def __str__(self):
       return f"{self.manager} : {self.dt_created}"
-  
 
 
 class NameList(models.Model):

@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% block content %}
+<br>
+<div class="container my-3">
+  <div class="row my-3">
+    <div class="col-sm-12 col-md-2 col-lg-2"></div>
+    <div class="col-sm-12 col-md-8 col-lg-8">
+      <div class="text-center">
+        <h4>일정을 생성해주세요!</h4>
+        <div>
+          <a class="text-decoration-none btn btn-outline-dark" href="{% url 'index' %}">이전</a>
+          <a class="text-decoration-none btn btn-primary" href="{% url 'card_create' %}">생성</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-12 col-md-2 col-lg-2"></div>
+  </div>
+</div>
+<br>
+<div class="container my-3">
+  <div class="row my-3">
+    <div class="col-sm-12 col-md-2 col-lg-2"></div>
+    <div class="col-sm-12 col-md-8 col-lg-8">
+      {% for card in card_list %}
+      {% if card.manager == request.user %}
+        <a id="card_{{ card.id }}"></a>
+        <div class="card">
+          <div class="card-body d-flex justify-content-between">
+            <a class="text-decoration-none pt-2" style="color: rgb(0,0,0,55);" href="{% url 'card_detail' card.id %}">
+              <h3>{{ card.title }}</h3>
+            </a>
+            <div class="pt-2">
+              <span>
+                <a class="text-decoration-none btn btn-primary" href="{% url 'card_update' card.id %}">수정</a>
+              </span>
+              <span>
+                <a class="text-decoration-none btn btn-danger" href="{% url 'card_delete' card.id %}">삭제</a>
+              </span>
+            </div>
+          </div>
+        </div>
+        <br>
+      {% endif %}
+      {% endfor %}
+    </div>
+    <div class="col-sm-12 col-md-2 col-lg-2"></div>
+  </div>
+</div>
+{% endblock %}

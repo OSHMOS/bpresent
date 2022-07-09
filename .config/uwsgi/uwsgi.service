@@ -3,7 +3,7 @@ Description=uWSGI service
 After=syslog.target
 
 [Service]
-ExecStart=/home/ubuntu/bpresent-venv/bin/uwsgi -i /home/ubuntu/bpresent/.config/uwsgi/bpresent.ini
+ExecStart=/home/ubuntu/venv/bin/uwsgi -i /home/ubuntu/bpresent/.config/uwsgi/bpresent.ini
 
 Restart=always
 KillSignal=SIGQUIT

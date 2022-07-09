@@ -9,7 +9,8 @@ https://docs.djangoproject.com/en/4.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
-import os, json
+import os
+import json
 from pathlib import Path
 from django.core.exceptions import ImproperlyConfigured
 
@@ -20,16 +21,17 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 secret_file = os.path.join(BASE_DIR, 'secrets.json')
 
 with open(secret_file) as f:
-	secrets = json.loads(f.read())
+    secrets = json.loads(f.read())
+
 
 def get_secret(setting):
-	'''비밀 변수를 가져오거나 명시적 예외를 반환한다.'''
-	try:
-		return secrets[setting]
-	except KeyError:
-		error_msg = 'Set the {} environment variable'.format(setting)
-		raise ImproperlyConfigured(error_msg)
-	
+    '''비밀 변수를 가져오거나 명시적 예외를 반환한다.'''
+    try:
+        return secrets[setting]
+    except KeyError:
+        error_msg = 'Set the {} environment variable'.format(setting)
+        raise ImproperlyConfigured(error_msg)
+
 
 SECRET_KEY = get_secret('SECRET_KEY')
 # Quick-start development settings - unsuitable for production
@@ -196,16 +198,17 @@ EMAIL_HOST_USER = 'ojames97@naver.com'
 smtp_password_file = os.path.join(BASE_DIR, 'smtp_password.json')
 
 with open(smtp_password_file) as f:
-	smtp_password = json.loads(f.read())
+    smtp_password = json.loads(f.read())
+
 
 def get_secret(setting):
-	'''비밀 변수를 가져오거나 명시적 예외를 반환한다.'''
-	try:
-		return smtp_password[setting]
-	except KeyError:
-		error_msg = 'Set the {} environment variable'.format(setting)
-		raise ImproperlyConfigured(error_msg)
-	
+    '''비밀 변수를 가져오거나 명시적 예외를 반환한다.'''
+    try:
+        return smtp_password[setting]
+    except KeyError:
+        error_msg = 'Set the {} environment variable'.format(setting)
+        raise ImproperlyConfigured(error_msg)
+
 
 EMAIL_HOST_PASSWORD = get_secret('EMAIL_HOST_PASSWORD')
 

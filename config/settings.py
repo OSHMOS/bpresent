@@ -40,8 +40,8 @@ SECRET_KEY = get_secret('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['.ap-northeast-2.compute.amazonaws.com']
-# ALLOWED_HOSTS = []
+# ALLOWED_HOSTS = ['.ap-northeast-2.compute.amazonaws.com']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -61,6 +61,7 @@ INSTALLED_APPS = [
     "allauth.socialaccount",
     'bootstrap5',
     'fontawesomefree',
+    "allauth.socialaccount.providers.google",
 ]
 
 SITE_ID = 1
@@ -170,6 +171,8 @@ LOGOUT_REDIRECT_URL = 'index'
 
 ACCOUNT_LOGOUT_ON_GET = True
 ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_EMAIL_VERIFICATION = "mandatory"
+ACCOUNT_CONFIRM_EMAIL_ON_GET = True
 
 AUTHENTICATION_BACKENDS = [
     # Needed to login by username in Django admin, regardless of `allauth`

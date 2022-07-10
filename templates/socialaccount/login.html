@@ -1,5 +1,4 @@
 {% extends 'base.html' %}
-{% load socialaccount %}
 {% load bootstrap5 %}
 {% block content %}
 <div class="container mt-3" style="user-select: auto;">
@@ -9,29 +8,15 @@
             <div id="content" class="border-top" style="user-select: auto;">
                 <div class="content_block" style="user-select: auto;">
                     <div class="row">
-                        <div class="col-4">
-                            <h4 style="user-select: auto;">로그인</h4>
-                        </div>
-                        <div class="col-8 text-end">
-                            <span>
-                                <a class="text-decoration-none" href="{% url 'account_signup' %}">회원가입</a>
-                                또는
-                                <a class="text-decoration-none" href="{% url 'account_reset_password' %}">아이디 / 비밀번호 찾기</a>
-                            </span>
-                        </div>
+                        <h4 style="user-select: auto;">Google로 로그인하시겠습니까?</h4>
                     </div>
                     <form method="POST" style="user-select: auto;">
                         {% csrf_token %}
-                        {% bootstrap_form form %}
+                        <br>
                         {% buttons %}
                           <button type="submit" class="btn btn-sm btn-primary" style="user-select: auto;">로그인</button>
                         {% endbuttons%}
                     </form>
-                    <span>
-                        <a class="btn btn-outline-dark" href="{% provider_login_url 'google' %}">
-                            <i class="fab fa-google fa-fw"></i>
-                        </a>
-                    </span>
                 </div>
             </div>
         </div>

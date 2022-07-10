@@ -60,10 +60,8 @@ INSTALLED_APPS = [
     "allauth.socialaccount",
     'bootstrap5',
     'fontawesomefree',
-    "allauth.socialaccount.providers.google",
+    'allauth.socialaccount.providers.google',
 ]
-
-SITE_ID = 1
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -173,6 +171,7 @@ ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_EMAIL_VERIFICATION = "mandatory"
 ACCOUNT_CONFIRM_EMAIL_ON_GET = True
 
+SITE_ID = 1
 AUTHENTICATION_BACKENDS = [
     # Needed to login by username in Django admin, regardless of `allauth`
     "django.contrib.auth.backends.ModelBackend",

@@ -8,16 +8,16 @@
             <div class="card-body">
                 <div class="card-text" style="white-space: pre-line;">
                     <h3>{{ name.name }}</h3>
-                    
-                    <p></p>
-                </div>
-                <div class="d-flex justify-content-end">
-                  <div class="d-flex justify-content-between">
-                    <span>
-                      <a class="text-decoration-none btn btn-primary" href="{% url 'name_update' name.id %}">수정</a>
-                      <a class="text-decoration-none btn btn-danger" href="{% url 'name_delete' name.id %}">삭제</a>
-                    </span>
-                  </div>
+                    {% if name.dt_attend %}
+                      <p>출석 시간 : {{ name.dt_attend }}</p>
+                    {% elif name.dt_late %}
+                      <p>지각 시간 : {{ name.dt_late }}</p>
+                    {% elif name.dt_absent %}
+                      <p>결석이에요. ㅠㅡㅠ</p>
+                    {% else %}
+                      <p></p>
+                    {% endif %}
+                    <a class="btn btn-sm btn-outline-secondary" href="{% url 'card_detail' name.card.id %}">목록</a>
                 </div>
             </div>
         </div>

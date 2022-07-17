@@ -7,38 +7,40 @@ from attendance.models import Card, Name
 from attendance.forms import CardForm, NameForm
 
 # Create your views here.
+
+
 class CardListView(LoginRequiredMixin, ListView):
-  model = Card
+    model = Card
 
 
 class CardDetailView(LoginRequiredMixin, DetailView):
-  model = Card
-  template_name = "attendance/name_list.html"
+    model = Card
+    template_name = "attendance/name_list.html"
 
 
 class CardCreateView(LoginRequiredMixin, CreateView):
-  model = Card
-  form_class = CardForm
+    model = Card
+    form_class = CardForm
 
-  def form_valid(self, form):
-    form.instance.manager = self.request.user
-    return super().form_valid(form)
+    def form_valid(self, form):
+        form.instance.manager = self.request.user
+        return super().form_valid(form)
 
-  def get_success_url(self):
-    return reverse('card_list')
+    def get_success_url(self):
+        return reverse('card_list')
 
 
 class CardUpdateView(LoginRequiredMixin, UpdateView):
-  model = Card
-  form_class = CardForm
-  template_name = 'attendance/card_update_form.html'
+    model = Card
+    form_class = CardForm
+    template_name = 'attendance/card_update_form.html'
 
-  def get_success_url(self):
-    return reverse('card_list')
+    def get_success_url(self):
+        return reverse('card_detail', kwargs={'pk': self.object.id})
 
 
 class CardDeleteView(LoginRequiredMixin, DeleteView):
-  model = Card
+    model = Card
 
-  def get_success_url(self):
-    return reverse('card_list')
+    def get_success_url(self):
+        return reverse('card_list')

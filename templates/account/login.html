@@ -10,12 +10,10 @@
                 <div class="content_block" style="user-select: auto;">
                     <div class="row">
                         <div class="col-4">
-                            <h4 style="user-select: auto;">로그인</h4>
+                            <h5 style="user-select: auto;">로그인</h5>
                         </div>
                         <div class="col-8 text-end">
                             <span>
-                                <a class="text-decoration-none" href="{% url 'account_signup' %}">회원가입</a>
-                                또는
                                 <a class="text-decoration-none" href="{% url 'account_reset_password' %}">아이디 / 비밀번호 찾기</a>
                             </span>
                         </div>
@@ -24,7 +22,7 @@
                         {% csrf_token %}
                         {% bootstrap_form form %}
                         {% buttons %}
-                          <button type="submit" class="btn btn-sm btn-primary" style="user-select: auto;">로그인</button>
+                        <button type="submit" class="btn btn-sm btn-primary" style="user-select: auto;">로그인</button>
                         {% endbuttons%}
                     </form>
                     <span>

@@ -6,6 +6,7 @@ urlpatterns = [
     # base_views
     path('', base_views.index, name='index'),
     path('profile/', base_views.profile, name='profile'),
+    path('privacy/', base_views.privacy, name='privacy'),
     # card_views
     path('list/', card_views.CardListView.as_view(), name='card_list'),
     path('deatil/<int:pk>', card_views.CardDetailView.as_view(), name='card_detail'),

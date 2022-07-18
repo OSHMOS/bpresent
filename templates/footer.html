@@ -1,12 +1,10 @@
-<div class="wrapper">
-  <footer class="footer bg-light fixed-bottom" style="user-select: auto;">
-      <div class="container mt-3" style="user-select: auto;">
-          <span class="text-muted" style="user-select: auto;">©2022 • bpresent.kr</span>
-          <span class="float-end small" style="user-select: auto;">
-              <a href="https://oshmos.github.io" style="user-select: auto; text-decoration: none;">
-                  개인정보취급방침
-              </a>
-          </span>
-      </div>
-    </footer>
-</div>
+<nav class="navbar fixed-bottom navbar-light bg-light">
+  <div class="container-fluid">
+    <span class="text-muted" style="user-select: auto;">©2022 • bpresent.kr</span>
+    <span class="float-end small" style="user-select: auto;">
+        <a href="{% url 'privacy' %}" style="user-select: auto; text-decoration: none;">
+            개인정보취급방침
+        </a>
+    </span>
+  </div>
+</nav>

@@ -24,12 +24,18 @@
                         {% buttons %}
                         <button type="submit" class="btn btn-sm btn-primary" style="user-select: auto;">로그인</button>
                         {% endbuttons%}
-                    </form>
-                    <span>
+                        <hr>
+                        <div class="text-muted my-3"><small>소셜 로그인</small></div>
                         <a class="btn btn-outline-dark" href="{% provider_login_url 'google' %}">
                             <i class="fab fa-google fa-fw"></i>
                         </a>
-                    </span>
+                        <a class="btn btn-sm btn-warning" href="{% provider_login_url 'kakao' %}">
+                            kakao
+                        </a>
+                        <a class="btn btn-sm btn-success" href="{% provider_login_url 'naver' %}">
+                            naver
+                        </a>
+                    </form>
                 </div>
             </div>
         </div>

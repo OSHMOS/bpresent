@@ -169,7 +169,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = "common.User"
 
 LOGIN_URL = 'account_login'
-LOGIN_REDIRECT_URL = 'card_list'
+LOGIN_REDIRECT_URL = 'index'
 LOGOUT_REDIRECT_URL = 'index'
 
 ACCOUNT_LOGOUT_ON_GET = True

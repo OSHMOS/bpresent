@@ -9,7 +9,7 @@
             <div id="content" class="border-top" style="user-select: auto;">
                 <div class="content_block" style="user-select: auto;">
                     <div class="row">
-                        <div class="col-4">
+                        <div class="col-4 text-start">
                             <h5 style="user-select: auto;">로그인</h5>
                         </div>
                         <div class="col-8 text-end">
@@ -20,9 +20,11 @@
                     </div>
                     <form method="POST" style="user-select: auto;">
                         {% csrf_token %}
-                        {% bootstrap_form form %}
+                        <div class="text-start">
+                            {% bootstrap_form form %}
+                        </div>
                         {% buttons %}
-                        <button type="submit" class="btn btn-sm btn-primary" style="user-select: auto;">로그인</button>
+                            <button type="submit" class="btn btn-primary d-flex flex-start" style="user-select: auto;">로그인</button>
                         {% endbuttons%}
                         <hr>
                         <div class="text-muted my-3"><small>소셜 로그인</small></div>

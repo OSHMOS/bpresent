@@ -24,10 +24,20 @@
       {% for card in card_list %}
       {% if card.manager == request.user %}
         <div class="card">
-          <div class="card-body text-center mt-2">
-            <a class="text-decoration-none" style="color: rgb(0,0,0,55);" href="{% url 'card_detail' card.id %}">
+          <div class="card-body text-center d-flex justify-content-between">
+            <a class="text-decoration-none mt-1" style="color: rgb(0,0,0,55);" href="{% url 'card_detail' card.id %}">
               <h4>{{ card.title }}</h4>
             </a>
+            &nbsp;
+            <div class="dropdown mt-1">
+              <button class="btn btn-sm btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="fas fa-cog"></i>
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                <li><a class="dropdown-item" href="{% url 'card_update' card.id %}">출석부 수정</a></li>
+                <li><a class="dropdown-item" href="{% url 'card_delete' card.id %}">출석부 삭제</a></li>
+              </ul>
+            </div>
           </div>
         </div>
         <br>

@@ -10,7 +10,9 @@
           <h5 class="my-3 border-bottom pb-2">출석부 생성</h5>
           <form method="post" class="post-form my-3">
               {% csrf_token %}
-              {% bootstrap_form form %}
+              <input type="text" class="form-control" name="title" id="title" autofocus
+                     value="{{ form.title.value|default_if_none:'' }}" placeholder="출석부 제목">
+              <br>
               {% buttons %}
               <button type="submit" class="btn btn-primary">생성하기</button>
               {% endbuttons %}

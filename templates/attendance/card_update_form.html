@@ -3,22 +3,24 @@
 {% block content %}
 <div class="container my-3">
   <div class="row my-3">
-    <div class="col-sm-12 col-md-2 col-lg-2 p-2"></div>
-    <div class="col-sm-12 col-md-8 col-lg-8 p-2">
+    <div class="col-sm-12 col-md-3 col-lg-3 p-2"></div>
+    <div class="col-sm-12 col-md-6 col-lg-6 p-2">
       <div id="content" class="border-top" style="user-select: auto;">
         <div class="content_block" style="user-select: auto;">
           <h5 class="my-3 border-bottom pb-2">출석부 수정</h5>
           <form method="post" class="post-form my-3">
               {% csrf_token %}
-              {% bootstrap_form form %}
+              <input type="text" class="form-control" name="title" id="title" autofocus
+                     value="{{ form.title.value|default_if_none:'' }}" placeholder="출석부 제목">
+              <br>
               {% buttons %}
-              <button type="submit" class="btn btn-primary">수정하기</button>
+                <button type="submit" class="btn btn-primary">수정하기</button>
               {% endbuttons %}
           </form>
         </div>
       </div>
     </div>
-    <div class="col-sm-12 col-md-2 col-lg-2 p-2"></div>
+    <div class="col-sm-12 col-md-3 col-lg-3 p-2"></div>
   </div>
 </div>
 {% endblock %}

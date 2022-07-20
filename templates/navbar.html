@@ -13,21 +13,21 @@
       <div class="navbar-collapse collapse justify-content-end" id="navbarNav" style="user-select: auto;">
           <ul class="nav navbar-nav ml-auto" style="user-select: auto;">
               {% if user.is_authenticated %}
-                  <li class="nav-item">
+                  <li class="nav-item text-start">
                       <a class="nav-link text-decoration-none" href="{% url 'profile' %}">
                         <i class="fas fa-user-alt"></i> {{ user.username }}
                       </a>
                   </li>
-                  <li class="nav-item">
+                  <li class="nav-item text-start">
                       <a href="{% url 'account_logout' %}" class="nav-link">
                         <i class="fas fa-sign-out-alt"></i> 로그아웃
                       </a>
                   </li>
                   {% else %}
-                  <li class="nav-item " style="user-select: auto;">
+                  <li class="nav-item text-start" style="user-select: auto;">
                       <a class="nav-link" href="{% url 'account_login' %}" style="user-select: auto;"><i class="fas fa-sign-in-alt" style="user-select: auto;"></i> 로그인</a>
                   </li>
-                  <li class="nav-item " style="user-select: auto;">
+                  <li class="nav-item text-start" style="user-select: auto;">
                       <a class="nav-link" href="{% url 'account_signup' %}" style="user-select: auto;"><i class="fas fa-user-plus" style="user-select: auto;"></i> 회원가입</a>
                   </li>  
               {% endif %}

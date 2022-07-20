@@ -10,7 +10,9 @@
           <h5 class="my-3 border-bottom pb-2">이름 추가</h5>
           <form method="post" class="post-form my-3">
               {% csrf_token %}
-              {% bootstrap_form form %}
+              <input type="text" class="form-control" name="name" id="name" autofocus
+                     value="{{ form.name.value|default_if_none:'' }}" placeholder="이름">
+              <br>
               {% buttons %}
               <button type="submit" class="btn btn-primary">추가하기</button>
               {% endbuttons %}

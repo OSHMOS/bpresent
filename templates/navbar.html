@@ -15,11 +15,13 @@
               {% if user.is_authenticated %}
                   <li class="nav-item">
                       <a class="nav-link text-decoration-none" href="{% url 'profile' %}">
-                        프로필 (준비 중)
+                        <i class="fas fa-user-alt"></i> {{ user.username }}
                       </a>
                   </li>
                   <li class="nav-item">
-                      <a href="{% url 'account_logout' %}" class="nav-link">로그아웃</a>
+                      <a href="{% url 'account_logout' %}" class="nav-link">
+                        <i class="fas fa-sign-out-alt"></i> 로그아웃
+                      </a>
                   </li>
                   {% else %}
                   <li class="nav-item " style="user-select: auto;">

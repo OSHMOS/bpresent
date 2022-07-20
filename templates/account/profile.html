@@ -2,11 +2,28 @@
 {% block content %}
 <div class="container my-3">
   <div class="row my-3">
-    <div class="card">
-      <div class="card-body">
-        <div class="card-text text-center" style="white-space: pre-line;">
-          프로필 페이지
-          (업데이트 예정)
+    <div class="col-sm-12 col-md-3 col-lg-3"></div>
+    <div class="col-sm-12 col-md-6 col-lg-6">
+      <div id="content" class="border-top">
+        <div class="content_block">
+          <div class="card">
+            <h6 class="text-center"style="white-space: pre-line;">
+              안녕하세요. {{ user.username }}님의 프로필입니다.
+            </h6>
+            <br>
+            <div class="d-flex justify-content-center">
+              <a class="btn btn-primary" href="{% url 'card_list' %}">
+                출석부 사용하러 가기
+              </a>
+            </div>
+            <br>
+          </div>
+          <br>
+          <div class="card">
+            <div class="card-header">
+              <h6 class="mt-2">즐겨찾는 출석부</h6>
+            </div>
+            <div class="card-body" style="white-space: pre-line;">
 
 
 
@@ -20,18 +37,14 @@
 
 
 
+              
 
-
-        </div>
-        <div class="d-flex justify-content-center">
-          {% if user.is_authenticated %}
-            <a class="btn btn-primary" href="{% url 'card_list' %}">
-              출석부 사용하러 가기
-            </a>
-          {% endif %}
+            </div>
+          </div>
         </div>
       </div>
     </div>
+    <div class="col-sm-12 col-md-3 col-lg-3"></div>
   </div>
 </div>
 {% endblock %}

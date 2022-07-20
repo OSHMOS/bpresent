@@ -36,7 +36,7 @@ class CardUpdateView(LoginRequiredMixin, UpdateView):
     template_name = 'attendance/card_update_form.html'
 
     def get_success_url(self):
-        return reverse('card_detail', kwargs={'pk': self.object.id})
+        return reverse('card_list')
 
 
 class CardDeleteView(LoginRequiredMixin, DeleteView):

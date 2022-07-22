@@ -5,32 +5,28 @@
     <div class="col-sm-12 col-md-3 col-lg-3"></div>
     <div class="col-sm-12 col-md-6 col-lg-6">
       <div id="content" class="border-top">
-        {% if user.is_authenticated %}
-          <div class="content_block">
-            <div class="card">
-              <div class="card-header text-center">
-                <h6 class="mt-1">
-                  'bpresent' 서비스 사용법
-                </h6>
+        <div class="content_block">
+          <div class="card">
+            <div class="card-header text-center">
+              <h6 class="mt-1">
+                'bpresent' 서비스 사용법
+              </h6>
+            </div>
+            <div class="card-body text-center">
+              <p>‘출석부 사용하러 가기' 버튼을 누른다.</p>
+              <p>작성할 출석부를 생성하고 누른다.</p>
+              <p>활동에 참여하는 인원의 이름을 추가한다.</p>
+              <p>인원의 상태에 따라 해당 버튼을 누른다.</p>
+              <p>인원의 이름을 눌러서 상세 페이지로 이동한다.</p>
+              <div class="d-flex justify-content-center">
+                <a class="btn btn-sm btn-primary" href="{% url 'card_list' %}">출석부 사용하러 가기</a>
               </div>
-              <div class="card-body text-center">
-                <p>‘출석부 사용하러 가기' 버튼을 누른다.</p>
-                <p>작성할 출석부를 생성하고 누른다.</p>
-                <p>활동에 참여하는 인원의 이름을 추가한다.</p>
-                <p>인원의 상태에 따라 해당 버튼을 누른다.</p>
-                <p>인원의 이름을 눌러서 상세 페이지로 이동한다.</p>
-                <div class="d-flex justify-content-center">
-                  <a class="btn btn-sm btn-primary" href="{% url 'card_list' %}">출석부 사용하러 가기</a>
-                </div>
-                <br>
-              </div>
+              <br>
             </div>
           </div>
-        {% endif %}
+        </div>
       </div>
-        <div class="col-sm-12 col-md-3 col-lg-3"></div>
-      </div>
-    </div>
+      <div class="col-sm-12 col-md-3 col-lg-3"></div>
     </div>
   </div>
 </div>

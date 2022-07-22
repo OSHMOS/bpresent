@@ -7,16 +7,6 @@
       <div id="content" class="border-top">
         {% if user.is_authenticated %}
           <div class="content_block">
-            <h6 class="text-center" style="white-space: pre-line;">
-              안녕하세요!
-
-              회사 내 부서 출근, 스터디 그룹 등
-              
-              소규모 활동 출석 관리 서비스
-              
-              ‘bpresent’입니다!
-
-            </h6>
             <div class="card">
               <div class="card-header text-center">
                 <h6 class="mt-1">
@@ -36,23 +26,6 @@
               </div>
             </div>
           </div>
-        {% else %}
-        <div class="content_block">
-          <h6 class="text-center" style="white-space: pre-line;">
-            계정이 아직 없으신가요?
-          </h6>
-          <div class="card">
-            <div class="card-body text-center">
-              <p>서비스 사용을 원하시면</p>
-              <p>버튼을 눌러주세요!</p>
-              <div class="d-flex justify-content-center">
-                <a class="btn btn-sm btn-primary" href="{% url 'account_login' %}">
-                  계정 만들러 가기
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
         {% endif %}
       </div>
         <div class="col-sm-12 col-md-3 col-lg-3"></div>

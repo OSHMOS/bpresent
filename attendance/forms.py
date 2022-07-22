@@ -10,4 +10,4 @@ class CardForm(forms.ModelForm):
 class NameForm(forms.ModelForm):
   class Meta:
     model = Name
-    exclude = ['card', 'dt_attend', 'dt_late', 'dt_absent',]
+    fields = ['name',]

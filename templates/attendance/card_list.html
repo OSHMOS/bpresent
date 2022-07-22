@@ -6,10 +6,10 @@
     <div class="col-sm-12 col-md-2 col-lg-2"></div>
     <div class="col-sm-12 col-md-8 col-lg-8">
       <div class="text-center">
-        <h4>출석부를 생성해주세요!</h4>
+        <h4>출석부를 생성하세요!</h4>
         <div>
-          <a class="text-decoration-none btn btn-outline-dark" href="{% url 'index' %}">이전</a>
-          <a class="text-decoration-none btn btn-primary" href="{% url 'card_create' %}">생성</a>
+          <a class="btn btn-outline-dark" href="{% url 'index' %}">이전</a>
+          <a class="btn btn-primary" href="{% url 'card_create' %}">생성</a>
         </div>
       </div>
     </div>
@@ -23,22 +23,10 @@
     <div class="col-sm-12 col-md-8 col-lg-8">
       {% for card in card_list %}
       {% if card.manager == request.user %}
-        <div class="card">
-          <div class="card-body text-center d-flex justify-content-between">
-            <a class="text-decoration-none mt-1" style="color: rgb(0,0,0,55);" href="{% url 'card_detail' card.id %}">
-              <h4>{{ card.title }}</h4>
-            </a>
-            &nbsp;
-            <div class="dropdown mt-1">
-              <button class="btn btn-sm btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                <i class="fas fa-cog"></i>
-              </button>
-              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                <li><a class="dropdown-item" href="{% url 'card_update' card.id %}">출석부 수정</a></li>
-                <li><a class="dropdown-item" href="{% url 'card_delete' card.id %}">출석부 삭제</a></li>
-              </ul>
-            </div>
-          </div>
+        <div class="d-grid">
+          <a class="btn btn-lg btn-outline-dark" href="{% url 'card_detail' card.id %}">
+            {{ card.dt_created | date:'m-d' }} <br> {{ card.title }}
+          </a>
         </div>
         <br>
       {% endif %}

@@ -8,24 +8,6 @@ from attendance.models import Card, Name
 from attendance.forms import NameForm
 
 
-class NameDetailView(DetailView):
-    model = Name
-    pk_url_kwarg = 'name_id'
-
-
-# class NameCreateView(LoginRequiredMixin, CreateView):
-#   model = Name
-#   form_class = NameForm
-
-#   def form_valid(self, form):
-#     form.instance.card = self.object.card
-#     form.save()
-#     return super().form_valid(form)
-
-#   def get_success_url(self):
-#     return reverse('card_detail', kwargs={'pk':self.object.id})
-
-
 @login_required(login_url='account_login')
 def name_create(request, pk):
     card = get_object_or_404(Card, id=pk)
@@ -40,7 +22,7 @@ def name_create(request, pk):
     else:
         form = NameForm()
 
-    return render(request, 'attendance/name_form.html', {'form': form})
+    return render(request, 'attendance/name_form.html', {'form': form, 'card': card})
 
 
 @login_required(login_url='account_login')
@@ -54,8 +36,8 @@ def name_update(request, name_id):
             return redirect('card_detail', pk=name.card.id)
     else:
         form = NameForm(instance=name)
-    ctx = {'form': form}
-    return render(request, 'attendance/name_update_form.html', ctx)
+
+    return render(request, 'attendance/name_update_form.html', {'form': form, 'name': name})
 
 
 @login_required(login_url='account_login')

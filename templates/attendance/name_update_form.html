@@ -10,11 +10,13 @@
           <h5 class="my-3 border-bottom pb-2">이름 수정</h5>
           <form method="post" class="post-form my-3">
               {% csrf_token %}
+              {% include 'form_errors.html' %}
               <input type="text" class="form-control" name="name" id="name" autofocus
                      value="{{ form.name.value|default_if_none:'' }}" placeholder="이름">
               <br>
               {% buttons %}
-              <button type="submit" class="btn btn-primary">수정하기</button>
+                <a class="btn btn-outline-dark" href="{% url 'card_detail' name.card.id %}">이전</a>
+                <button type="submit" class="btn btn-primary">수정</button>
               {% endbuttons %}
           </form>
         </div>

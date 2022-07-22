@@ -5,6 +5,10 @@ def index(request):
   return render(request, 'attendance/index.html')
 
 
+def how(request):
+  return render(request, 'attendance/how.html')
+
+
 def privacy(request):
   return render(request, 'account/privacy.html')
 

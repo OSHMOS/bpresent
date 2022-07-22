@@ -13,31 +13,33 @@
                             <h5 style="user-select: auto;">로그인</h5>
                         </div>
                         <div class="col-8 text-end">
-                            <span>
-                                <a class="text-decoration-none" href="{% url 'account_reset_password' %}">아이디 / 비밀번호 찾기</a>
-                            </span>
+                            <a class="text-decoration-none" href="{% url 'account_signup' %}">회원가입</a> 
                         </div>
                     </div>
                     <form method="POST" style="user-select: auto;">
                         {% csrf_token %}
+                        {% include 'form_errors.html' %}
                         <div class="text-start">
                             {% bootstrap_form form %}
                         </div>
                         {% buttons %}
                             <button type="submit" class="btn btn-primary d-flex flex-start" style="user-select: auto;">로그인</button>
                         {% endbuttons%}
-                        <hr>
-                        <div class="text-muted my-3"><small>소셜 로그인</small></div>
-                        <a class="btn btn-outline-dark" href="{% provider_login_url 'google' %}">
-                            <i class="fab fa-google fa-fw"></i>
-                        </a>
-                        <a class="btn btn-sm btn-warning" href="{% provider_login_url 'kakao' %}">
-                            kakao
-                        </a>
-                        <a class="btn btn-sm btn-success" href="{% provider_login_url 'naver' %}">
-                            naver
-                        </a>
                     </form>
+                    <span>
+                        <a class="text-decoration-none" href="{% url 'account_reset_password' %}">비밀번호를 잊으셨나요?</a>
+                    </span>
+                    <hr>
+                    <div class="text-muted my-3"><small>소셜 로그인</small></div>
+                    <a class="btn btn-outline-dark" href="{% provider_login_url 'google' %}">
+                        <i class="fab fa-google fa-fw"></i>
+                    </a>
+                    <a class="btn btn-sm btn-warning" href="{% provider_login_url 'kakao' %}">
+                        kakao
+                    </a>
+                    <a class="btn btn-sm btn-success" href="{% provider_login_url 'naver' %}">
+                        naver
+                    </a>
                 </div>
             </div>
         </div>

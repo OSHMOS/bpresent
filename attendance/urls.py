@@ -5,6 +5,7 @@ from .views import base_views, card_views, name_views
 urlpatterns = [
     # base_views
     path('', base_views.index, name='index'),
+    path('how', base_views.how, name='how'),
     path('profile/', base_views.profile, name='profile'),
     path('privacy/', base_views.privacy, name='privacy'),
     # card_views
@@ -14,8 +15,6 @@ urlpatterns = [
     path('update/<int:pk>', card_views.CardUpdateView.as_view(), name='card_update'),
     path('delete/<int:pk>', card_views.CardDeleteView.as_view(), name='card_delete'),
     # name_views
-    path('name/detail/<int:name_id>',
-         name_views.NameDetailView.as_view(), name='name_detail'),
     path('name/create/<int:pk>', name_views.name_create, name='name_create'),
     path('name/update/<int:name_id>', name_views.name_update, name='name_update'),
     path('name/delete/<int:name_id>', name_views.name_delete, name='name_delete'),

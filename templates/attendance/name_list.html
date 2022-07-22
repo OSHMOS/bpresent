@@ -4,8 +4,12 @@
   <div class="card">
     <div class="card-header d-flex justify-content-between">
       <span class="mt-1">
-        <h4>{{ card.title }}</h4>
+        <h2>{{ card.title }}</h2>
       </span>
+      <div class="mt-1">
+        <a class="btn btn-sm btn-primary" href="{% url 'card_update' card.id %}">수정</a>
+        <a class="btn btn-sm btn-danger" href="{% url 'card_delete' card.id %}">삭제</a>
+      </div>
     </div>
     <div class="card-body">
       <div class="contatiner my-3">
@@ -13,10 +17,10 @@
           <div class="col-sm-12 col-md-2 col-lg-2"></div>
           <div class="col-sm-12 col-md-8 col-lg-8">
             <div class="text-center">
-              <h4>이름을 추가해주세요!</h4>
+              <h4>이름을 추가하세요!</h4>
               <div>
-                <a class="text-decoration-none btn btn-outline-dark" href="{% url 'card_list' %}">이전</a>
-                <a class="text-decoration-none btn btn-primary" href="{% url 'name_create' card.id %}">추가</a>
+                <a class="btn btn-outline-dark" href="{% url 'card_list' %}">이전</a>
+                <a class="btn btn-primary" href="{% url 'name_create' card.id %}">추가</a>
               </div>
             </div>
           </div>
@@ -36,27 +40,15 @@
                     <a class="text-decoration-none pt-2" style="color: rgb(0,0,0,55);" href="{% url 'name_detail' name.id %}">
                       <h3>{{ name.name }}</h3>
                     </a>
-                    &nbsp;
-                    <div class="dropdown mt-2">
-                      <button class="btn btn-sm btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                        <i class="fas fa-cog"></i>
-                      </button>
-                      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                        <li><a class="dropdown-item" href="{% url 'name_update' name.id %}">이름 수정</a></li>
-                        <li><a class="dropdown-item" href="{% url 'name_delete' name.id %}">이름 삭제</a></li>
-                      </ul>
-                    </div>
                   </div>
-                  <div class="card-text">
-                    <h3 class="pt-2">
-                      {% if name.dt_attend %}
-                        O
-                      {% elif name.dt_late %}
-                        △
-                      {% elif name.dt_absent %}
-                        X
-                      {% endif %}
-                    </h3>
+                  <div class="dropdown mt-2">
+                    <button class="btn btn-sm btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                      <i class="fas fa-cog"></i>
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                      <li><a class="dropdown-item" href="{% url 'name_update' name.id %}">이름 수정</a></li>
+                      <li><a class="dropdown-item" href="{% url 'name_delete' name.id %}">이름 삭제</a></li>
+                    </ul>
                   </div>
                 </div>
                 <div class="card-body">
@@ -69,6 +61,15 @@
                       </span>
                     </div>
                   </div>
+                  <h3 class="pt-2">
+                    {% if name.dt_attend %}
+                      <h6>출석 일시 : {{name.dt_attend | date:'m-d,H:i' }} </h6>
+                    {% elif name.dt_late %}
+                      <h6>지각 일시 : {{name.dt_late | date:'m-d,H:i' }} </h6>
+                    {% elif name.dt_absent %}
+                      <h6>결석 일시 : {{name.dt_absent | date:'m-d,H:i' }} </h6>
+                    {% endif %}
+                  </h3>
                 </div>
               </div>
               <br>

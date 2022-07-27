@@ -14,6 +14,8 @@ urlpatterns = [
     path('create/', card_views.CardCreateView.as_view(), name='card_create'),
     path('update/<int:pk>', card_views.CardUpdateView.as_view(), name='card_update'),
     path('delete/<int:pk>', card_views.CardDeleteView.as_view(), name='card_delete'),
+    path('bookmark/<int:pk>', card_views.card_bookmark, name='card_bookmark'),
+    path('create/csv/<int:pk>', card_views.card_to_csv, name='card_to_csv'),
     # name_views
     path('name/create/<int:pk>', name_views.name_create, name='name_create'),
     path('name/update/<int:name_id>', name_views.name_update, name='name_update'),

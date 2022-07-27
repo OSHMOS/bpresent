@@ -7,8 +7,6 @@ from attendance.models import Card, Name
 from attendance.forms import CardForm, NameForm
 
 # Create your views here.
-
-
 class CardListView(LoginRequiredMixin, ListView):
     model = Card
 
@@ -44,3 +42,13 @@ class CardDeleteView(LoginRequiredMixin, DeleteView):
 
     def get_success_url(self):
         return reverse('card_list')
+
+
+@login_required(login_url='account_login')
+def card_bookmark(request, pk):
+    return redirect('card_detail', pk)
+
+
+@login_required(login_url='account_login')
+def card_to_csv(request, pk):
+    return redirect('card_detail', pk)

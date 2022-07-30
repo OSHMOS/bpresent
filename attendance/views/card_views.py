@@ -45,10 +45,5 @@ class CardDeleteView(LoginRequiredMixin, DeleteView):
 
 
 @login_required(login_url='account_login')
-def card_bookmark(request, pk):
-    return redirect('card_detail', pk)
-
-
-@login_required(login_url='account_login')
 def card_to_csv(request, pk):
     return redirect('card_detail', pk)

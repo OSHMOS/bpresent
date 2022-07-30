@@ -1,4 +1,4 @@
-from .models import Card, Name
+from .models import Card, Name, Bookmark
 from django import forms
 
 class CardForm(forms.ModelForm):
@@ -11,3 +11,9 @@ class NameForm(forms.ModelForm):
   class Meta:
     model = Name
     fields = ['name',]
+
+
+class BookmarkForm(forms.ModelForm):
+  class Meta:
+    model = Bookmark
+    fields= ['title',]

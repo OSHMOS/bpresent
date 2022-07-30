@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.urls import path
-from .views import base_views, card_views, name_views
+from .views import base_views, card_views, name_views, bookmark_views
 
 urlpatterns = [
     # base_views
@@ -14,7 +14,6 @@ urlpatterns = [
     path('create/', card_views.CardCreateView.as_view(), name='card_create'),
     path('update/<int:pk>', card_views.CardUpdateView.as_view(), name='card_update'),
     path('delete/<int:pk>', card_views.CardDeleteView.as_view(), name='card_delete'),
-    path('bookmark/<int:pk>', card_views.card_bookmark, name='card_bookmark'),
     path('create/csv/<int:pk>', card_views.card_to_csv, name='card_to_csv'),
     # name_views
     path('name/create/<int:pk>', name_views.name_create, name='name_create'),
@@ -23,4 +22,8 @@ urlpatterns = [
     path('name/attend/<int:name_id>', name_views.name_attend, name='name_attend'),
     path('name/late/<int:name_id>', name_views.name_late, name='name_late'),
     path('name/absent/<int:name_id>', name_views.name_absent, name='name_absent'),
+    # bookmark_views
+    # path('bookmark/save/<int:bookmark_id>', bookmark_views.BookmarkCreateView.as_view(), name='bookmark_save'),
+    path('bookmark/save/<int:pk>', bookmark_views.bookmark_save, name='bookmark_save'),
+    path('bookmark/load/<int:bookmark_id>', bookmark_views.bookmark_load, name='bookmark_load'),
 ]

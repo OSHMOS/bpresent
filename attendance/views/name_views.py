@@ -7,7 +7,6 @@ from django.views.generic import DetailView, CreateView, DeleteView
 from attendance.models import Card, Name
 from attendance.forms import NameForm
 
-
 @login_required(login_url='account_login')
 def name_create(request, pk):
     card = get_object_or_404(Card, id=pk)

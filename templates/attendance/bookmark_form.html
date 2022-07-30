@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load bootstrap5 %}
+{% block content %}
+<div class="container my-3">
+  <div class="row my-3">
+    <div class="col-sm-12 col-md-3 col-lg-3 p-2"></div>
+    <div class="col-sm-12 col-md-6 col-lg-6 p-2">
+      <div id="content" class="border-top" style="user-select: auto;">
+        <div class="content_block" style="user-select: auto;">
+          <h5 class="my-3 border-bottom pb-2">북마크 저장</h5>
+          <form method="post" class="post-form my-3">
+              {% csrf_token %}
+              {% include 'form_errors.html' %}
+              <input type="text" class="form-control" name="title" id="title" autofocus
+                     value="{{ form.title.value|default_if_none:'' }}" placeholder="북마크 제목">
+              <br>
+              {% buttons %}
+                <a class="btn btn-outline-dark" href="{% url 'card_detail' card.id %}">이전</a>
+                <button type="submit" class="btn btn-primary">추가</button>
+              {% endbuttons %}
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-12 col-md-3 col-lg-3 p-2"></div>
+  </div>
+</div>
+{% endblock %}

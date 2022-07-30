@@ -5,10 +5,9 @@ class Card(models.Model):
   title = models.CharField(max_length=100, verbose_name="제목")
   manager = models.ForeignKey(User, on_delete=models.CASCADE)
   dt_created = models.DateField(auto_now_add=True)
-  bookmark = models.ForeignKey(User, on_delete=models.CASCADE, related_name='bookmark', null=True, blank=True)
 
   def __str__(self):
-      return self.title
+    return self.title
 
 
 class Name(models.Model):
@@ -19,5 +18,12 @@ class Name(models.Model):
   dt_absent = models.DateTimeField(null=True, blank=True)
 
   def __str__(self):
-      return self.name
-  
+    return self.name
+
+
+class Bookmark(models.Model):
+  title = models.CharField(max_length=100)
+  card = models.ForeignKey(Card, on_delete=models.CASCADE, related_name='bookmark')
+
+  def __str__(self):
+    return self.title

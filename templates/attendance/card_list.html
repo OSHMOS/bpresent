@@ -11,13 +11,19 @@
           <a class="btn btn-outline-dark" href="{% url 'index' %}">메인</a>
           <a class="btn btn-primary" href="{% url 'card_create' %}">생성</a>
         </div>
+        <br>
+        {% for card in card_list %}
+        {% if card.bookmark.count > 0 %}
+          {% comment %} for 문을 안 쓰려면 card_views.py에서 CardListView를 수정해야함 {% endcomment %}
+          <a class="btn btn-sm btn-outline-dark" href="{% url 'bookmark_load' card.id %}">{{ card.bookmark.title }} 불러오기</a>
+        {% endif %}
+        {% endfor %}
       </div>
     </div>
     <div class="col-sm-12 col-md-2 col-lg-2"></div>
   </div>
 </div>
 <br>
-{% comment %} <a class="btn btn-dark" href="{% url 'bookmark_load' card.bookmark.id %}">명단 불러오기</a> {% endcomment %}
 <div class="container my-3">
   <div class="row my-3">
     <div class="col-sm-12 col-md-2 col-lg-2"></div>

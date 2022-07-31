@@ -23,7 +23,12 @@ urlpatterns = [
     path('name/late/<int:name_id>', name_views.name_late, name='name_late'),
     path('name/absent/<int:name_id>', name_views.name_absent, name='name_absent'),
     # bookmark_views
-    # path('bookmark/save/<int:bookmark_id>', bookmark_views.BookmarkCreateView.as_view(), name='bookmark_save'),
-    path('bookmark/save/<int:pk>', bookmark_views.bookmark_save, name='bookmark_save'),
-    path('bookmark/load/<int:bookmark_id>', bookmark_views.bookmark_load, name='bookmark_load'),
+    path('bookmark/create/<int:pk>',
+         bookmark_views.bookmark_create, name='bookmark_create'),
+    path('bookmark/update/<int:pk>',
+         bookmark_views.bookmark_update, name='bookmark_update'),
+    path('bookmark/delete/<int:pk>',
+         bookmark_views.bookmark_delete, name='bookmark_delete'),
+    path('bookmark/load/<int:pk>',
+         bookmark_views.bookmark_load, name='bookmark_load'),
 ]

@@ -29,12 +29,11 @@
               {% for bookmark in bookmark_list %}
                 <a id="bookmark_{{ bookmark.id }}"></a>
                 <div class="card d-grid gap-1">
-                  <a class="btn">
-                    <h3 class="pt-1">{{ bookmark.title }}</h3>
+                  {% comment %} <a class="btn" href="{% url 'card_detail' bookmark.card.id %}">
+                    <h3 class="pt-1">{{ bookmark.title }}</h3> {% endcomment %}
                   </a>
                 </div>
                 <br>
-                {% comment %} <a class='btn' href="{% url 'card_detail' bookmark.card.id %}">{{ bookmark.title }} 확인하기</a> {% endcomment %}
               {% endfor %}
             </div>
           </div>

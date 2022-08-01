@@ -29,15 +29,12 @@
       <div>
       <br>
       <div>
-        {% if card.name_set %}
-          <a class="btn btn-sm btn-dark" href="{% url 'bookmark_create' card.id %}">명단 저장하기</a>
-        {% endif %}
-        {% if card.bookmark.count > 0 %}
-          <a class="btn btn-sm btn-outline-dark" href="{% url 'bookmark_load' card.id %}">명단 불러오기</a>
+        {% if card.name_set.count > 0 %}
+          <a class="btn btn-sm btn-dark" href="{% url 'bookmark_create' card.id %}">즐겨찾기</a>
+          <a class="btn btn-sm btn-success" href="{% url 'card_to_csv' card.id %}">csv로 내보내기</a>
         {% endif %}
       </div>
       <br>
-      <a class="btn btn-sm btn-success" href="{% url 'card_to_csv' card.id %}">csv로 내보내기</a>
       <div class="container my-3">
         <div class="row my-3">
           <div class="col-sm-12 col-md-2 col-lg-2"></div>

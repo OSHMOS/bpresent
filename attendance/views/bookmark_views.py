@@ -25,13 +25,3 @@ def bookmark_create(request, pk):
 @login_required(login_url='account_login')
 def bookmark_update(request, pk):
     pass
-
-
-@login_required(login_url='account_login')
-def bookmark_delete(request, pk):
-    pass
-
-
-@login_required(login_url='account_login')
-def bookmark_load(request, pk):
-    bookmark = get_object_or_404(Bookmark, id=pk)

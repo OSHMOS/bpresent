@@ -27,8 +27,4 @@ urlpatterns = [
          bookmark_views.bookmark_create, name='bookmark_create'),
     path('bookmark/update/<int:pk>',
          bookmark_views.bookmark_update, name='bookmark_update'),
-    path('bookmark/delete/<int:pk>',
-         bookmark_views.bookmark_delete, name='bookmark_delete'),
-    path('bookmark/load/<int:pk>',
-         bookmark_views.bookmark_load, name='bookmark_load'),
 ]

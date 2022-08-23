@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.urls import path
-from .views import base_views, card_views, name_views, bookmark_views
+from .views import base_views, card_views, name_views
 
 urlpatterns = [
     # base_views

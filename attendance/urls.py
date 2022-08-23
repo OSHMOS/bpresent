@@ -22,9 +22,4 @@ urlpatterns = [
     path('name/attend/<int:name_id>', name_views.name_attend, name='name_attend'),
     path('name/late/<int:name_id>', name_views.name_late, name='name_late'),
     path('name/absent/<int:name_id>', name_views.name_absent, name='name_absent'),
-    # bookmark_views
-    #     path('bookmark/create/<int:pk>',
-    #          bookmark_views.bookmark_create, name='bookmark_create'),
-    #     path('bookmark/update/<int:pk>',
-    #          bookmark_views.bookmark_update, name='bookmark_update'),
 ]

@@ -30,7 +30,6 @@
       <br>
       <div>
         {% comment %} {% if card.name_set.count > 0 %}
-          <a class="btn btn-sm btn-dark" href="{% url 'bookmark_create' card.id %}">즐겨찾기</a>
           <a class="btn btn-sm btn-success" href="{% url 'card_to_csv' card.id %}">csv로 내보내기</a>
         {% endif %} {% endcomment %}
       </div>

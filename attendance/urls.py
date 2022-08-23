@@ -10,7 +10,7 @@ urlpatterns = [
     path('privacy/', base_views.privacy, name='privacy'),
     # card_views
     path('list/', card_views.CardListView.as_view(), name='card_list'),
-    path('deatil/<int:pk>', card_views.CardDetailView.as_view(), name='card_detail'),
+    path('detail/<int:pk>', card_views.CardDetailView.as_view(), name='card_detail'),
     path('create/', card_views.CardCreateView.as_view(), name='card_create'),
     path('update/<int:pk>', card_views.CardUpdateView.as_view(), name='card_update'),
     path('delete/<int:pk>', card_views.CardDeleteView.as_view(), name='card_delete'),

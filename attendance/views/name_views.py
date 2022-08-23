@@ -4,8 +4,11 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
 from django.utils import timezone
 from django.views.generic import DetailView, CreateView, DeleteView
+from bs4 import BeautifulSoup
+import requests
 from attendance.models import Card, Name
 from attendance.forms import NameForm
+
 
 @login_required(login_url='account_login')
 def name_create(request, pk):

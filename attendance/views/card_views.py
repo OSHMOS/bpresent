@@ -1,12 +1,16 @@
+import requests
 from django.shortcuts import render, redirect, get_object_or_404, resolve_url
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
+from bs4 import BeautifulSoup
 from attendance.models import Card, Name
 from attendance.forms import CardForm, NameForm
 
 # Create your views here.
+
+
 class CardListView(LoginRequiredMixin, ListView):
     model = Card
 
@@ -46,4 +50,4 @@ class CardDeleteView(LoginRequiredMixin, DeleteView):
 
 @login_required(login_url='account_login')
 def card_to_csv(request, pk):
-    return redirect('card_detail', pk)
+    pass

@@ -29,9 +29,9 @@
       <div>
       <br>
       <div>
-        {% comment %} {% if card.name_set.count > 0 %}
+        {% if card.name_set.count > 0 %}
           <a class="btn btn-sm btn-success" href="{% url 'card_to_csv' card.id %}">csv로 내보내기</a>
-        {% endif %} {% endcomment %}
+        {% endif %}
       </div>
       <br>
       <div class="container my-3">

@@ -50,4 +50,18 @@ class CardDeleteView(LoginRequiredMixin, DeleteView):
 
 @login_required(login_url='account_login')
 def card_to_csv(request, pk):
-    pass
+    session = requests.session()
+    # beautifulsoup을 활용하여 자동으로 로그인이 되게 해야 한다.
+    data = {
+        'return_url': 'https://bpresent.kr/'
+    }
+    url = f'https://bpresent.kr/detail/{pk}'
+    html = requests.get(url)
+    soup = BeautifulSoup(html.text, 'html.parser')
+    # title = soup.find_all('span')
+    # name = soup.find_all('h3', 'name')
+    # status = soup.find_all('h3', 'status')
+    # print(title)
+    # print(name)
+    # print(status)
+    return redirect('card_detail', pk)
